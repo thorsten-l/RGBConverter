@@ -28,7 +28,7 @@ void RGBConverter::rgbToHsl(byte r, byte g, byte b, double hsl[]) {
     double bd = (double) b/255;
     double max = threeway_max(rd, gd, bd);
     double min = threeway_min(rd, gd, bd);
-    double h, s, l = (max + min) / 2;
+    double h=0, s=0, l = (max + min) / 2;
 
     if (max == min) {
         h = s = 0; // achromatic
@@ -61,7 +61,7 @@ void RGBConverter::rgbToHsl(byte r, byte g, byte b, double hsl[]) {
  * @return  Array           The RGB representation
  */
 void RGBConverter::hslToRgb(double h, double s, double l, byte rgb[]) {
-    double r, g, b;
+    double r=0, g=0, b=0;
 
     if (s == 0) {
         r = g = b = l; // achromatic
@@ -94,7 +94,7 @@ void RGBConverter::rgbToHsv(byte r, byte g, byte b, double hsv[]) {
     double gd = (double) g/255;
     double bd = (double) b/255;
     double max = threeway_max(rd, gd, bd), min = threeway_min(rd, gd, bd);
-    double h, s, v = max;
+    double h=0, s=0, v = max;
 
     double d = max - min;
     s = max == 0 ? 0 : d / max;
@@ -129,7 +129,7 @@ void RGBConverter::rgbToHsv(byte r, byte g, byte b, double hsv[]) {
  * @return  Array           The RGB representation
  */
 void RGBConverter::hsvToRgb(double h, double s, double v, byte rgb[]) {
-    double r, g, b;
+    double r=0, g=0, b=0;
 
     int i = int(h * 6);
     double f = h * 6 - i;
